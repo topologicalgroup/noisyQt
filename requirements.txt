@@ -1,7 +1,3 @@
-# Required to run swinir test from the repository of Liang et al.
-opencv-python
 torch
-requests
 timm
-
 PyQt6
