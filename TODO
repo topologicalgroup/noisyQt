@@ -1,0 +1,4 @@
+Add option and settings to select which model weights to use (noise levels)
+- 15 (monochrome/color)
+- 25 (monochrome/color)
+- 50 (monohrome/color)
