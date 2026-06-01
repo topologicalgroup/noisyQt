@@ -1,0 +1,8 @@
+# Internal files
+__pycache__/
+venv
+*.db
+models
+
+# MacOS
+.DS_Store
