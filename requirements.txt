@@ -4,4 +4,7 @@ torch
 requests
 timm
 
+# For function overloading
+multipledispatch
+
 PyQt6

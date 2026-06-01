@@ -860,7 +860,7 @@ if __name__ == '__main__':
                    window_size=window_size, img_range=1., depths=[6, 6, 6, 6],
                    embed_dim=60, num_heads=[6, 6, 6, 6], mlp_ratio=2, upsampler='pixelshuffledirect')
     print(model)
-    print(height, width, model.flops() / 1e9)
+    print(heikght, width, model.flops() / 1e9)
 
     x = torch.randn((1, 3, height, width))
     x = model(x)
