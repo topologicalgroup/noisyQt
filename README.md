@@ -1,7 +1,9 @@
 # An interactive implementation of SwinIR for denoising
 
-image of ui
+<!-- ![Placeholder for UI showcase](placeholder url) -->
 
-used this paper (https://arxiv.org/abs/2108.10257)
+An interactive implementation from the paper *[SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257)* by Liang et al,
+using PyQt6. This is simply a wrapper around their model for denoising images.
 
-how to set it up/run
+## Getting it to run
+<!-- TODO -->
