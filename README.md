@@ -7,3 +7,7 @@ using PyQt6. This is simply a wrapper around their model for denoising images.
 
 ## Getting it to run
 <!-- TODO -->
+
+Ideal to run in a virtual environment
+pip install -e .
+python -m noisyqt

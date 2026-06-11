@@ -2,7 +2,7 @@ import os
 import torch
 import numpy as np
 from PIL import Image
-from src.network_swinir import SwinIR
+from network_swinir import SwinIR
 
 # TODO:
 #   read yaml file and select options to load specific denoising model

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "noisyqt"
+version = "0.0.1"
+description = "An image denoiser using the SwinIR Transformer"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "torch",
+    "timm",
+    "PyQt6",
+    "PySide6"
+]
+
+[project.scripts]
+noisyqt = "src.noisyqt.__main__:main"
+
+[tools.setuptools.packages.find]
+where = ["."]
