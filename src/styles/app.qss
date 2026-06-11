@@ -1,0 +1,36 @@
+
+#imageDropBox {
+    border: 2px dashed #d0d5dd;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+#imageDropBox:hover {
+    border-color: #98a2b3;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#imageDropBox[dragging="true"] {
+    border-color: blue;
+    background-color: rgba(124, 58, 237, 0.09);
+}
+
+#imageDropBox QLabel {
+    border: none;
+}
+
+QLabel {
+    color: black;
+}
+
+#uploadIconTitle {
+    font-size: 18px;
+    font-weight: 600;
+    qproperty-alignment: AlignCenter;
+}
+
+#uploadIconSubtitle {
+    font-size: 14px;
+    color: black;
+    qproperty-alignment: AlignCenter;
+}

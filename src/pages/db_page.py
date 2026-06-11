@@ -1,22 +1,16 @@
-import sys
-from pathlib import Path
-
-from PySide6 import QtCore 
-from PySide6.QtCore import Qt
-
 from PySide6.QtWidgets import (
     QApplication, QWidget, QLabel, QVBoxLayout, QHBoxLayout,
     QPushButton, QFileDialog, QSizePolicy, QMessageBox, QScrollArea,
     QStackedWidget
 )
 
-class DenoisePage(QWidget):
+class DBPage(QWidget):
     def __init__(self, main_window):
         super().__init__()
 
         self.main_window = main_window
 
-        self.label = QLabel("denoise page sample text")
+        self.label = QLabel("database page where u should drop some delicacies")
 
         self.back_btn = QPushButton("Go Back")
 

@@ -11,11 +11,12 @@ from PySide6.QtWidgets import (
     QStackedWidget
 )
 
-from pages.load_page import loadPage
-from pages.denoise_page import denoisePage
+from pages.load_page import LoadPage
+from pages.denoise_page import DenoisePage
+from pages.db_page import DBPage
 
 
-class mainWindow(QWidget):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
@@ -28,11 +29,13 @@ class mainWindow(QWidget):
         # Pages
         self.stack = QStackedWidget()
 
-        self.load_page = loadPage(self)
-        self.denoise_page = denoisePage(self)
+        self.load_page = LoadPage(self)
+        self.denoise_page = DenoisePage(self)
+        self.db_page = DBPage(self)
 
         self.stack.addWidget(self.load_page)
         self.stack.addWidget(self.denoise_page)
+        self.stack.addWidget(self.db_page)
 
         layout = QVBoxLayout(self)
         layout.addWidget(self.stack)
@@ -45,8 +48,18 @@ class mainWindow(QWidget):
 
     def show_denoise_page(self):
         self.stack.setCurrentWidget(self.denoise_page)
+    
+    def show_db_page(self):
+        self.stack.setCurrentWidget(self.db_page)
 
-app = QApplication([])
-window = mainWindow()
-window.show()
-app.exec()
+if __name__ == "__main__":
+    app = QApplication([])
+
+    qss_path = Path(__file__).parent / "styles" / "app.qss"
+    with open(qss_path, "r") as f:
+        app.setStyleSheet(f.read())
+
+    window = MainWindow()
+    window.show()
+
+    app.exec()
