@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS images (
 def image_to_byte_array(image: Image.Image) -> bytes:
     img_byte_array = io.BytesIO()
     # TODO: fix image.format
-    image.save(img_byte_array, format=image.format)
+    # Assume it'll be in png for now
+    image.save(img_byte_array, format="PNG")
     img_byte_array = img_byte_array.getvalue()
     return img_byte_array
 
@@ -42,25 +43,42 @@ class Database:
         cursor = self.conn.cursor()
         cursor.execute(DB_SCHEMA)
         self.conn.commit()
-        self.close()
 
     def insert(self, filename: str, original: Image.Image, denoised: Image.Image):
         original_bytes = image_to_byte_array(original)
         denoised_bytes = image_to_byte_array(denoised)
-        # SQLite does not have a dedicated date/time datatype. (https://sqlite.org/lang_datefunc.html)
         date_now = datetime.datetime.now().isoformat()
         cursor = self.conn.cursor()
-        cursor.execute("INSERT INTO images (filename, original, denoised, created_at) "
+        cursor.execute("INSERT INTO images (filename, original, denoised, created_at) " +
                        "VALUES (?, ?, ?, ?)",(filename, original_bytes, denoised_bytes, date_now))
         self.conn.commit()
-        self.close()
 
-    def read(self, id) -> Image.Image:
+    def read(self, id: int):
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT id, filename, original, denoised, created_at FROM images WHERE id = ?", (id,))
+        row = cursor.fetchone()
+
+        if not row:
+            print(f"Could not fetch data for id '{id}'")
+            return None
+
+        res = {"id": row[0],
+               "filename": row[1],
+               "original": row[2],
+               "denoised": row[3],
+               "created_at": row[4]}
+        return res
+
+    def read_all(self):
         pass
-        # cursor = self.conn.cursor()
-        # cursor.execute("TODO")
+
+    def delete(self, id: int):
+        cursor = self.conn.cursor()
+        cursor.execute("DELETE FROM images WHERE id = ?", (id,))
+        if cursor.rowcount != 1:
+            print(f"Failed to delete row with id: '{id}")
+        else:
+            print(f"Successfully deleted row id: '{id}")
 
     def close(self):
         self.conn.close()
-
-

@@ -2,7 +2,7 @@ import os
 import torch
 import numpy as np
 from PIL import Image
-from .network_swinir import SwinIR
+from src.network_swinir import SwinIR
 
 # TODO:
 #   read yaml file and select options to load specific denoising model
@@ -35,12 +35,11 @@ class Denoiser:
                        num_heads=[6, 6, 6, 6],
                        mlp_ratio=2,
                        upsampler='')
-        # https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html
         checkpoint = torch.load(model_weights_path, map_location = "cpu")
         model.load_state_dict(checkpoint["params"], strict=False)
-
         self.model = model
         self.model.eval()
+        print(f"Successfully initialized denoiser with model weight file: '{model_weights_path}'")
 
     def denoise_image(self, data: np.ndarray | Image.Image) -> Image.Image:
         if isinstance(data, Image.Image):
