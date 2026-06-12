@@ -1,8 +1,8 @@
 # NoisyQt
 
-<!-- ![Placeholder for UI showcase](placeholder url) -->
+![Comparison of a noisy, and a denoised image using SwinIR](.github/res/cmp_raytraced.png)
 
-Welcome! This is a simple, Qt implementation of the paper [SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257) by Liang et al. This is a simple wrapper around the authors' model for restoring noisy images using a Transformer.
+Welcome! This is a Qt implementation of the paper [SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257) by Liang et al. This is a simple wrapper around the authors' model and denoise model weights, using a [Swin Transformer](https://arxiv.org/abs/2103.14030).
 
 ## Usage
 
