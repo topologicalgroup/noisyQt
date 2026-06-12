@@ -1,4 +1,3 @@
-import sys
 from pathlib import Path
 from PIL import Image
 
@@ -11,9 +10,9 @@ from PySide6.QtWidgets import (
     QStackedWidget
 )
 
-from pages.load_page import LoadPage
-from pages.denoise_page import DenoisePage
-from pages.db_page import DBPage
+from .pages.load_page import LoadPage
+from .pages.denoise_page import DenoisePage
+from .pages.db_page import DBPage
 
 
 class MainWindow(QWidget):
