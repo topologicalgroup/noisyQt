@@ -1,13 +1,3 @@
-"""
-def main():
-    print("Hello world")
-
-if __name__ == "__main__":
-    print("[INFO] Hi, This is a simple application that tests out image denoising using transformers.")
-    # print([INFO] The model used comes from the paper "SwinIR: Image Restoration Using Swin Transformer" by Liang et al.")
-    print("[INFO] https://arxiv.org/abs/2108.10257")
-"""
-
 import sys
 from pathlib import Path
 from PIL import Image
@@ -63,6 +53,10 @@ class MainWindow(QWidget):
         self.stack.setCurrentWidget(self.db_page)
 
 if __name__ == "__main__":
+    print("Hi, This is a simple application that tests out image denoising using transformers.")
+    print('The model used comes from the paper "SwinIR: Image Restoration Using Swin Transformer" by Liang et al.')
+    print("https://arxiv.org/abs/2108.10257")
+
     app = QApplication([])
 
     qss_path = Path(__file__).parent / "styles" / "app.qss"
